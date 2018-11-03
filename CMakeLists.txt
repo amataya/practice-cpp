@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.12)
+project(practice LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|AppleClang|GNU")
+    add_compile_options(-Wall -Wextra -Wunreachable-code -Wpedantic -Wno-unused-variable -Wno-sign-compare)
+    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -pthread)
+    message("Compiler options set for Clang|AppleClang|GNU")
+endif()
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-pthread")
+    add_compile_options(-Wweak-vtables -Wexit-time-destructors -Wglobal-constructors -Wmissing-noreturn )
+    message("Compiler options set for Clang")
+endif()
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    add_compile_options(/W4 /w44265 /w44061 /w44062 )
+    message("Compiler options set for MSVC")
+endif()
+
+# Add Executables below
+add_executable(premcheck check_is_permutation.cpp)
+add_executable(maxbinarygap max_binary_gap.cpp)
+add_executable(intersections disc_intersections.cpp)
