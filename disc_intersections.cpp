@@ -57,7 +57,7 @@ int disc_intersections(vector<int> A)
     return intersections;
 }
 ////////////////////////////////////////////////////////////////////////////////
-TEST_CASE("Test Disc Intersections", "[classic]")
+TEST_CASE("Test Disc Intersections", "[codility]")
 {
     REQUIRE(disc_intersections({1, 5, 2, 1, 4, 0})  == 11);
 }
