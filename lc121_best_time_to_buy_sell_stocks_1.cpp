@@ -27,18 +27,13 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
 int maxProfit(vector<int> prices)
 {
-    if (prices.size() == 0)
-        return 0;
-    int minP = prices[0];
-    int profit = 0;
-    for (int i = 1; i < prices.size(); ++i)
+    int minPrice = INT_MAX, maxProfit = 0;
+    for (int i = 0; i < prices.size(); ++i)
     {
-        if (minP > prices[i])
-            minP = prices[i];
-        else
-            profit = max(prices[i] - minP, profit);
+        minPrice = min(minPrice, prices[i]);
+        maxProfit = max(maxProfit, prices[i] - minPrice);
     }
-    return profit;
+    return maxProfit;
 }
 
 int maxProfit2(vector<int> prices)
@@ -54,14 +49,20 @@ int maxProfit2(vector<int> prices)
 
 int maxProfit3(vector<int> prices)
 {
-    int minPrice = INT_MAX, maxProfit = 0;
-    for (int i = 0; i < prices.size(); ++i)
+    if (prices.size() == 0)
+        return 0;
+    int minP = prices[0];
+    int profit = 0;
+    for (int i = 1; i < prices.size(); ++i)
     {
-        minPrice = min(minPrice, prices[i]);
-        maxProfit = max(maxProfit, prices[i] - minPrice);
+        if (minP > prices[i])
+            minP = prices[i];
+        else
+            profit = max(prices[i] - minP, profit);
     }
-    return maxProfit;
+    return profit;
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE("Best time to buy and sell stocks 1", "[leetcode]")
 {
