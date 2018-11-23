@@ -46,3 +46,5 @@
 | 40 | Find first occurrence of a number | Easy | Bloomberg |
 | 41 | Find missing words | Easy | Bloomberg |
 | 42 | Array values form a triangle | Easy | JPMorgan |
+| 43 | Merge Two Sorted Lists | Easy | |
+| 44 | Remove Duplicates from Sorted Array | Easy | |
