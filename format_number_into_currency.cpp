@@ -14,20 +14,35 @@ using namespace std;
 string format_number(int num)
 {
     const int comma_positions[] = {3, 6, 9, 12, 15};
-    string repr;
-    int index = 0;
+    stringstream ss;
+    bool negative = false;
+    int index = 0, insertions = 0;
+
+    if (num < 0)
+    {
+        negative = true;
+        num *= -1;
+    }
+
     while (num > 0)
     {
-        if (repr.size() == comma_positions[index] + index)
+        if (insertions == comma_positions[index] + index)
         {
-            repr.push_back(',');
+            ss << ',';
             ++index;
+            ++insertions;
         }
-        repr.push_back(static_cast<char>(num % 10 + '0')); // To get ASCII code
+        ss << static_cast<char>(num % 10 + '0'); // To get ASCII code
         num /= 10;
+        ++insertions;
     }
-    reverse(repr.begin(), repr.end());
-    return repr;
+
+    if (negative)
+        ss << '-';
+
+    string number = ss.str();
+    reverse(number.begin(), number.end());
+    return number;
 }
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE("Format number into currency", "[bloomberg]")
@@ -36,4 +51,5 @@ TEST_CASE("Format number into currency", "[bloomberg]")
     REQUIRE(format_number(104450) == "104,450");
     REQUIRE(format_number(1234) == "1,234");
     REQUIRE(format_number(1) == "1");
+    REQUIRE(format_number(-456789) == "-456,789");
 }
