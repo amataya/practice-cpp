@@ -45,3 +45,4 @@
 | 39 | Find average of m groups | Easy | Bloomberg |
 | 40 | Find first occurrence of a number | Easy | Bloomberg |
 | 41 | Find missing words | Easy | Bloomberg |
+| 42 | Array values form a triangle | Easy | JPMorgan |

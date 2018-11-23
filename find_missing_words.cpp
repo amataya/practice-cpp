@@ -16,8 +16,8 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
 vector<string> find_missing_words(string str1, string str2)
 {
-    const string src = str1; //str1.size() > str2.size() ? str1 : str2;
-    const string tgt = str2; //str1.size() > str2.size() ? str2 : str1;
+    const string src = str1.size() > str2.size() ? str1 : str2;
+    const string tgt = str1.size() > str2.size() ? str2 : str1;
     unordered_set<string> words;
 
     int i = 0, start = 0;
@@ -30,6 +30,7 @@ vector<string> find_missing_words(string str1, string str2)
         }
     }
 
+    // insert the last word
     words.insert(src.substr(start, i - start));
 
     for(i = 0, start = 0; i <= tgt.size(); ++i)
