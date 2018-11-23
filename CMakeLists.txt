@@ -41,6 +41,8 @@ add_executable(dijkstra graph_dijkstra_shortest_path.cpp)
 # Other
 add_executable(wtjbsched weighted_job_scheduling.cpp)
 add_executable(formatnum format_number_into_currency.cpp)
+add_executable(revsent reverse_sentence.cpp)
+add_executable(wayssum count_ways_of_sum.cpp)
 
 # LeetCode
 add_executable(lc443 lc443_string_compression.cpp)

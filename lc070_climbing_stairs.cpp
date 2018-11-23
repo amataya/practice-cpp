@@ -21,6 +21,8 @@
 
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
+// The key here to note is that the distinct ways form a fibonacci sequence
+// So one needs to generate the nth digit in fibonacci sequence
 int climbStairs(int n)
 {
     if (n < 3)
