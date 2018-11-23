@@ -24,9 +24,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 # Add Executables below
-add_executable(bfsgraph graph_bfs_traversal.cpp)
-add_executable(dfsgraph graph_dfs_traversal.cpp)
-add_executable(dijkstra graph_dijkstra_shortest_path.cpp)
+# Codility
 add_executable(premcheck check_is_permutation.cpp)
 add_executable(maxbinarygap max_binary_gap.cpp)
 add_executable(intersections disc_intersections.cpp)
@@ -34,7 +32,17 @@ add_executable(smallnon smallest_absent_num.cpp)
 add_executable(frogriverone frog_river_one.cpp)
 add_executable(ocr ocr_similar.cpp)
 add_executable(coinsum coin_adjacency_sum.cpp)
+
+# Essential
+add_executable(bfsgraph graph_bfs_traversal.cpp)
+add_executable(dfsgraph graph_dfs_traversal.cpp)
+add_executable(dijkstra graph_dijkstra_shortest_path.cpp)
+
+# Other
 add_executable(wtjbsched weighted_job_scheduling.cpp)
+add_executable(formatnum format_number_into_currency.cpp)
+
+# LeetCode
 add_executable(lc443 lc443_string_compression.cpp)
 add_executable(lc118 lc118_pascal_triangle.cpp)
 add_executable(lc722 lc722_remove_comments.cpp)

@@ -1,5 +1,7 @@
 # Algorithm practice for Interviews
 
+## LeetCode
+
 | # | Problem | Level | Comments |
 |---|---------|-------|----------|
 | 1 | Two Sum | Easy | |
@@ -37,3 +39,4 @@
 | 33 | Remove Comments |  Medium | |
 | 34 | Valid Mountain Array | Easy | |
 | 35 | Merge Sorted Array | Easy | |
+| 36 | Format a number into currency | Easy | Bloomberg | 
