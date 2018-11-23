@@ -5,7 +5,7 @@
 | # | Problem | Level | Comments |
 |---|---------|-------|----------|
 | 1 | Two Sum | Easy | |
-| 2 | Median of Two Sorted Arrays | Hard | |
+| 2 | Median of Two Sorted Arrays | Hard | I don't understand |
 | 3 | Reverse Integer | Easy | |
 | 4 | String to Integer (atoi) |  Medium | |
 | 5 | Palindrome Number |  Easy | |
@@ -40,3 +40,8 @@
 | 34 | Valid Mountain Array | Easy | |
 | 35 | Merge Sorted Array | Easy | |
 | 36 | Format a number into currency | Easy | Bloomberg | 
+| 37 | Count ways of forming a number from 1 and 2 | Easy | Bloomberg |
+| 38 | Reverse words in a sentence | Easy | Bloomberg |
+| 39 | Find average of m groups | Easy | Bloomberg |
+| 40 | Find first occurrence of a number | Easy | Bloomberg |
+| 41 | Find missing words | Easy | Bloomberg |

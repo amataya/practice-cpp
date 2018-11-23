@@ -43,6 +43,9 @@ add_executable(wtjbsched weighted_job_scheduling.cpp)
 add_executable(formatnum format_number_into_currency.cpp)
 add_executable(revsent reverse_sentence.cpp)
 add_executable(wayssum count_ways_of_sum.cpp)
+add_executable(avggroup average_of_groups.cpp)
+add_executable(firstoccr first_occurrence_of_number.cpp)
+add_executable(missingwrd find_missing_words.cpp)
 
 # LeetCode
 add_executable(lc443 lc443_string_compression.cpp)
