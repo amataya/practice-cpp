@@ -48,3 +48,6 @@
 | 42 | Array values form a triangle | Easy | JPMorgan |
 | 43 | Merge Two Sorted Lists | Easy | |
 | 44 | Remove Duplicates from Sorted Array | Easy | |
+| 45 | Kill Process | Medium | Bloomberg |
+| 46 | Maximum product of three numbers | Easy | Bloomberg |
+| 47 | Top K Frequent Words | Medium | Bloomberg | 
