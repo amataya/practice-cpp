@@ -47,6 +47,9 @@ add_executable(avggroup average_of_groups.cpp)
 add_executable(firstoccr first_occurrence_of_number.cpp)
 add_executable(missingwrd find_missing_words.cpp)
 add_executable(valtriangle array_values_form_triangle.cpp)
+add_executable(firstunique first_unique_number.cpp)
+add_executable(lexiorder lexicographic_ordering_numbers.cpp)
+
 # LeetCode
 add_executable(lc443 lc443_string_compression.cpp)
 add_executable(lc118 lc118_pascal_triangle.cpp)
