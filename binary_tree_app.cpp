@@ -26,6 +26,7 @@ TEST_CASE("Binary Tree Essentials", "[classic]")
     vector<int> traversal;
     inorder(root, traversal);
     REQUIRE(traversal == vector<int>{4, 8, 10, 12, 14, 20, 22});
+    REQUIRE(inorder_iterative(root) == vector<int>{4, 8, 10, 12, 14, 20, 22});
 
     traversal.clear();
     preorder(root, traversal);
@@ -43,7 +44,6 @@ TEST_CASE("Binary Tree Essentials", "[classic]")
                                     22, MARKER, MARKER});
 
     destroy_binary_tree(root);
-    REQUIRE(root == nullptr);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -3,6 +3,7 @@
 #include "binary_tree.h"
 
 #include <queue>
+#include <stack>
 #include <utility>
 
 using namespace std;
@@ -38,9 +39,9 @@ void serialize_binary_tree(BTNode *root, list<int>& repr)
     serialize_binary_tree(root->right, repr);
 }
 
-void destroy_binary_tree(BTNode *&root)
+void destroy_binary_tree(BTNode *root)
 {
-    if (root == nullptr)
+    if (!root)
         return;
     destroy_binary_tree(root->left);
     destroy_binary_tree(root->right);
@@ -98,6 +99,23 @@ void inorder(BTNode *root, vector<int>& traversal)
         traversal.push_back(root->key);
         inorder(root->right, traversal);
     }
+}
+
+vector<int> inorder_iterative(BTNode *node)
+{
+    if (!node)
+        return {};
+    stack<BTNode*> stk;
+    vector<int> traversal;
+    for(BTNode *prev = nullptr; node || !stk.empty();)
+    {
+        for(; node; node = node->left)
+            stk.push(node);
+        node = stk.top(); stk.pop();
+        traversal.push_back(node->key);
+        node = node->right;
+    }
+    return traversal;
 }
 ////////////////////////////////////////////////////////////////////////////////
 // Given a binary tree, find its maximum depth.
@@ -178,3 +196,132 @@ BTNode* deepest_left_leaf_node(BTNode* root)
 }
 
 // https://www.geeksforgeeks.org/deepest-left-leaf-node-in-a-binary-tree/
+
+////////////////////////////////////////////////////////////////////////////////
+// Given a Binary Tree, check if it is a valid binary search tree
+////////////////////////////////////////////////////////////////////////////////
+
+bool is_bst(BTNode *node, BTNode *left, BTNode *right)
+{
+    if (!node) // an empty tree is a valid BST
+        return true;
+    if ((left && left->key >= node->key) || (right && right->key <= node->key))
+        return false;
+    return is_bst(node->left, left, node) && is_bst(node->right, node, right);
+}
+
+bool is_valid_bst(BTNode *root)
+{
+    return is_bst(root, nullptr, nullptr);
+}
+
+bool is_valid_bst_iterative(BTNode *node)
+{
+    if (!node)
+        return true;
+
+    stack<BTNode*> stk;
+    for(BTNode *prev = nullptr; node || !stk.empty(); )
+    {
+        for(; node; node = node->left)
+            stk.push(node);
+
+        node = stk.top(); stk.pop();
+        if (prev && node->key <= prev->key)
+            return false;
+        prev = node;
+        node = node->right;
+    }
+    return true;
+}
+///////////////////////////////////////////////////////////////////////////////
+// Given a binary tree, find the lowest common ancestor (LCA) of two given
+// nodes in the tree.
+// The lowest common ancestor is defined between two nodes p and q as the
+// lowest node in T that has both p and q as descendants
+// (where we allow a node to be a descendant of itself).
+// Follow Up: implement this for a BST
+///////////////////////////////////////////////////////////////////////////////
+/*
+// Path from root to a given node
+bool find_path(BTNode *root, BTNode *node, vector<BTNode*> &path)
+{
+    if (! root)
+        return false;
+
+    path.push_back(root);
+    if (root == node)
+        return true;
+
+    // Check if it exists in subtrees
+    if ( find_path(root->left, node, path) || find_path(root->right, node, path) )
+        return true;
+
+    // Does not exists in subtrees, pop the last value and return false
+    path.pop_back();
+    return false;
+}
+*/
+
+BTNode* lowest_common_ancestor(BTNode *root, BTNode *p, BTNode *q)
+{
+    if (!root || root == p || root == q)
+        return root;
+    BTNode *left = lowest_common_ancestor(root->left, p, q);
+    BTNode *right = lowest_common_ancestor(root->right, p, q);
+    return !left ? right :  !right ? left : root;
+}
+
+BTNode* lowest_common_ancestor_bst(BTNode *root, BTNode *p, BTNode *q)
+{
+    if (!root)
+        return nullptr;
+
+    // If both p and q are smaller than root then LCA lies on left side
+    if (root->key > p->key && root->key > q->key)
+        return lowest_common_ancestor_bst(root->left, p, q);
+
+    // If both p and q are greater than root then LCA lies on right side
+    if (root->key < p->key && root->key < q->key)
+        return lowest_common_ancestor_bst(root->right, p, q);
+
+    // otherwise root is LCA
+    return root;
+}
+
+BTNode* lowest_common_ancestor_bst_iterative(BTNode *root, BTNode *p, BTNode *q)
+{
+    if (!root || root == p || root == q)
+        return root;
+
+    while (root)
+    {
+        if (root->key > p->key && root->key > q->key)
+            root = root->left;
+        else if (root->key < p->key && root->key < q->key)
+            root = root->right;
+        else
+            return root;
+    }
+    return nullptr;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Given a binary search tree, write a function kthSmallest to find the kth
+// smallest element in it.
+///////////////////////////////////////////////////////////////////////////////
+
+int kth_smallest_element(BTNode *node, int k)
+{
+    stack<BTNode*> stk;
+    while(node || !stk.empty())
+    {
+        for(; node; node = node->left)
+            stk.push(node);
+        node = stk.top(); stk.pop();
+        if (--k == 0)
+            break;
+        node = node->right;
+    }
+    return node->key;
+}

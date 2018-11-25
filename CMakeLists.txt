@@ -95,3 +95,15 @@ target_link_libraries(lc111 libbt)
 
 add_executable(lc104 lc104_maximum_depth_binary_tree.cpp)
 target_link_libraries(lc104 libbt)
+
+add_executable(lc098 lc098_is_valid_bst.cpp)
+target_link_libraries(lc098 libbt)
+
+add_executable(lc236 lc236_lowest_common_ancestor_binary_tree.cpp)
+target_link_libraries(lc236 libbt)
+
+add_executable(lc235 lc235_lowest_common_ancestor_bst.cpp)
+target_link_libraries(lc235 libbt)
+
+add_executable(lc230 lc230_kth_smallest_element_in_bst.cpp)
+target_link_libraries(lc230 libbt)
