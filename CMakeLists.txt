@@ -34,9 +34,13 @@ add_executable(ocr ocr_similar.cpp)
 add_executable(coinsum coin_adjacency_sum.cpp)
 
 # Essential
+add_library(libbt STATIC binary_tree.cpp)
+
 add_executable(bfsgraph graph_bfs_traversal.cpp)
 add_executable(dfsgraph graph_dfs_traversal.cpp)
 add_executable(dijkstra graph_dijkstra_shortest_path.cpp)
+add_executable(binary_tree binary_tree_app.cpp)
+target_link_libraries(binary_tree libbt)
 
 # Other
 add_executable(wtjbsched weighted_job_scheduling.cpp)
@@ -65,12 +69,10 @@ add_executable(lc011 lc011_container_with_most_water.cpp)
 add_executable(lc461 lc461_hamming_distance.cpp)
 add_executable(lc344 lc344_reverse_string.cpp)
 add_executable(lc412 lc412_fizz_buzz.cpp)
-add_executable(lc104 lc104_maximum_depth_binary_tree.cpp)
 add_executable(lc206 lc206_reverse_linked_list.cpp)
 add_executable(lc122 lc122_best_time_to_buy_sell_stock_2.cpp)
 add_executable(lc242 lc242_valid_anagram.cpp)
 add_executable(lc121 lc121_best_time_to_buy_sell_stocks_1.cpp)
-add_executable(lc111 lc111_minimum_depth_binary_tree.cpp)
 add_executable(lc141 lc141_linked_list_cycle.cpp)
 add_executable(lc204 lc204_count_primes.cpp)
 add_executable(lc053 lc053_maximum_subarray.cpp)
@@ -87,3 +89,9 @@ add_executable(lc026 lc026_remove_duplicates_sorted_array.cpp)
 add_executable(lc582 lc582_kill_process.cpp)
 add_executable(lc692 lc692_top_k_frequent_words.cpp)
 add_executable(lc628 lc628_maximum_product_three_numbers.cpp)
+
+add_executable(lc111 lc111_minimum_depth_binary_tree.cpp)
+target_link_libraries(lc111 libbt)
+
+add_executable(lc104 lc104_maximum_depth_binary_tree.cpp)
+target_link_libraries(lc104 libbt)
