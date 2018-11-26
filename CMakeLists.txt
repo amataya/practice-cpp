@@ -53,6 +53,7 @@ add_executable(missingwrd find_missing_words.cpp)
 add_executable(valtriangle array_values_form_triangle.cpp)
 add_executable(firstunique first_unique_number.cpp)
 add_executable(lexiorder lexicographic_ordering_numbers.cpp)
+add_executable(lenlongsubseq length_of_longest_subsequence_with_given_sum.cpp)
 
 # LeetCode
 add_executable(lc443 lc443_string_compression.cpp)
