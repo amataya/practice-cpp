@@ -90,6 +90,7 @@ add_executable(lc026 lc026_remove_duplicates_sorted_array.cpp)
 add_executable(lc582 lc582_kill_process.cpp)
 add_executable(lc692 lc692_top_k_frequent_words.cpp)
 add_executable(lc628 lc628_maximum_product_three_numbers.cpp)
+add_executable(lc042 lc042_trapping_rain_water.cpp)
 
 add_executable(lc111 lc111_minimum_depth_binary_tree.cpp)
 target_link_libraries(lc111 libbt)
