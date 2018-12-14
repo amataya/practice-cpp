@@ -20,7 +20,12 @@ vector<string> letterCombinations(string digits)
     if (digits.empty())
         return {};
 
-    static const vector<string> mapping = {"", "", "abc", "def", "ghi", "jkl",
+    // Clang will warn that the destructor of this object will be executed
+    // at exit time. Global and function static objects will get their
+    // destructors called when your application is exiting. These destructors
+    // are "exit time destructors". and are called in the reverse order
+    // that they were constructed in. The warning is only to seek attention.
+    static const string mapping[] = {"", "", "abc", "def", "ghi", "jkl",
                                     "mno", "pqrs", "tuv", "wxyz"};
 
     int i = 0, j = 0, k = 0, index = 0;

@@ -1,0 +1,18 @@
+# Codility
+add_executable(codl01 l01_max_binary_gap.cpp)
+add_executable(codl021 l02_cyclic_rotation.cpp)
+add_executable(codl022 l02_odd_occurrence.cpp)
+add_executable(codl031 l03_missing_element.cpp)
+add_executable(codl032 l03_frog_jump.cpp)
+add_executable(codl033 l03_tape_equilibrium.cpp)
+add_executable(codl041 l04_permcheck.cpp)
+add_executable(codl042 l04_frog_river_one.cpp)
+add_executable(codl043 l04_max_counters.cpp)
+add_executable(codl044 l04_missing_integer.cpp)
+
+add_executable(codl064 l06_disc_intersections.cpp)
+
+add_executable(cod_ocr ocr_similar.cpp)
+add_executable(cod_coinsum coin_adjacency_sum.cpp)
+add_executable(cod_equibindx equilibrium_index.cpp)
+add_executable(cod_leadsort leader_sorted_array.cpp)

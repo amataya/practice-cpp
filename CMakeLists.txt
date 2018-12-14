@@ -23,37 +23,32 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     message("Compiler options set for MSVC")
 endif()
 
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 # Add Executables below
-# Codility
-add_executable(premcheck check_is_permutation.cpp)
-add_executable(maxbinarygap max_binary_gap.cpp)
-add_executable(intersections disc_intersections.cpp)
-add_executable(smallnon smallest_absent_num.cpp)
-add_executable(frogriverone frog_river_one.cpp)
-add_executable(ocr ocr_similar.cpp)
-add_executable(coinsum coin_adjacency_sum.cpp)
+add_subdirectory(codility)
 
 # Essential
 add_library(libbt STATIC binary_tree.cpp)
 
-add_executable(bfsgraph graph_bfs_traversal.cpp)
-add_executable(dfsgraph graph_dfs_traversal.cpp)
-add_executable(dijkstra graph_dijkstra_shortest_path.cpp)
-add_executable(binary_tree binary_tree_app.cpp)
-target_link_libraries(binary_tree libbt)
+add_executable(algo_bfsgraph graph_bfs_traversal.cpp)
+add_executable(algo_dfsgraph graph_dfs_traversal.cpp)
+add_executable(algo_dijkstra graph_dijkstra_shortest_path.cpp)
+add_executable(algo_binary_tree binary_tree_app.cpp)
+target_link_libraries(algo_binary_tree libbt)
 
 # Other
-add_executable(wtjbsched weighted_job_scheduling.cpp)
-add_executable(formatnum format_number_into_currency.cpp)
-add_executable(revsent reverse_sentence.cpp)
-add_executable(wayssum count_ways_of_sum.cpp)
-add_executable(avggroup average_of_groups.cpp)
-add_executable(firstoccr first_occurrence_of_number.cpp)
-add_executable(missingwrd find_missing_words.cpp)
-add_executable(valtriangle array_values_form_triangle.cpp)
-add_executable(firstunique first_unique_number.cpp)
-add_executable(lexiorder lexicographic_ordering_numbers.cpp)
-add_executable(lenlongsubseq length_of_longest_subsequence_with_given_sum.cpp)
+add_executable(exer_wtjbsched weighted_job_scheduling.cpp)
+add_executable(exer_formatnum format_number_into_currency.cpp)
+add_executable(exer_revsent reverse_sentence.cpp)
+add_executable(exer_wayssum count_ways_of_sum.cpp)
+add_executable(exer_avggroup average_of_groups.cpp)
+add_executable(exer_firstoccr first_occurrence_of_number.cpp)
+add_executable(exer_missingwrd find_missing_words.cpp)
+add_executable(exer_valtriangle array_values_form_triangle.cpp)
+add_executable(exer_firstunique first_unique_number.cpp)
+add_executable(exer_lexiorder lexicographic_ordering_numbers.cpp)
+add_executable(exer_lenlongsubseq length_of_longest_subsequence_with_given_sum.cpp)
 
 # LeetCode
 add_executable(lc443 lc443_string_compression.cpp)
