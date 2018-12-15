@@ -15,50 +15,50 @@ bool sort_one_swap(vector<int> A)
     if (A.size() < 2)
         return true;
 
-    int count = 0, i = -1, j = -1, idx = 0, k = 0;
-    for (idx = A.size() - 1; idx > 0; --idx)
-    {
-        if (A[idx] < A[idx - 1])
-        {
-            ++count;
+    int i = 0, j = -1;
+    vector<int> indices;
+    for (i = 0; i < A.size() - 1; ++i)
+        if (A[i] > A[i + 1])
+            indices.emplace_back(i);
 
-            if (i == -1)
-                i = idx - 1;
-            for (k = A.size() - 1; k >= 0; --k)
-            {
-                if (A[i] > A[k])
-                {
-                    ++count;
-                    j = k;
-                    break;
-                }
-            }
-        }
-    }
-
-    // More than 2 - you know what to do (may be redundant)
-    if (count > 2)
+    // More than 2 - you know what to do
+    if (indices.size() > 2)
         return false;
 
     // If all elements are sorted
-    if (count == 0)
+    if (indices.empty())
         return true;
 
     // Exactly 2 - Fantastic!
-    if (count == 2)
-        swap(A[i], A[j]);
-
-    // One tricky case! {1, 2, 4, 3, 5}
-    if (count == 1)
+    if (indices.size() == 2)
     {
-        j = i;
-        i = i - 1;
+        i = indices[0], j = indices[1];
+        if (j + 1 < A.size()) // To handle tricky case of {5, 2, 3, 1}
+            j += (A[i] < A[j + 1]) ? 0 : 1;
         swap(A[i], A[j]);
     }
 
-    // It looks it would have been sorted but do a second check
-    for (idx = 1; idx < A.size(); ++idx)
-        if (A[idx] < A[idx - 1])
+    // One index only - tricky case! {1, 2, 4, 3, 5}
+    if (indices.size() == 1)
+    {
+        i = indices[0], j = -1;
+        for(int k = A.size() - 1; k > i; --k)
+        {
+            if(A[k] < A[i] && A[k - 1] <= A[i])
+            {
+                j = k;
+                break;
+            }
+        }
+        if (j != -1)
+            swap(A[i], A[j]);
+        else
+            return false;
+    }
+
+    // It looks we have a sorted array but let's do a second check
+    for (i = 1; i < A.size(); ++i)
+        if (A[i] < A[i - 1])
             return false;
 
     return true;
@@ -71,4 +71,5 @@ TEST_CASE("Sort By One Swap", "[codility]")
     REQUIRE_FALSE(sort_one_swap({1, 3, 5, 3, 4}));
     REQUIRE(sort_one_swap({1, 2, 4, 3, 5}));
     REQUIRE_FALSE(sort_one_swap({4, 1, 2, 3}));
+    REQUIRE(sort_one_swap({5, 2, 3, 1}));
 }
