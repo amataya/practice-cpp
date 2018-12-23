@@ -39,9 +39,9 @@ using namespace std;
 // multiple of K that is less than or equal to A.
 // The number of multiples of K in [A, B] is same as [mK, B] if A is multiple
 // of K (rem == 0) and one less if rem > 0.
-// Multiple of 3 (K) between 3 (A) and 30 (B) = floor((30 - 3) / 3) + 1;
+//
 // Now, the number of multiples of K in [mK, B] is equal to the number of
-// multiples of K in the interval [0, B-mK], which is floor((B- mK)/K) + 1
+// multiples of K in the interval [0, B - mK], which is floor((B - mK)/K) + 1
 // (the plus one is there because 0 is a multiple)
 int count_divisibles(int A, int B, int K)
 {
@@ -53,8 +53,18 @@ int count_divisibles(int A, int B, int K)
     else
         return floor((B - mK) / K);
 }
+
+// This is a much simpler version. We are moving A to be a multiple of K
+int count_divisibles2(int A, int B, int K)
+{
+    const int rem = A % K;
+    A += (rem > 0) ? (K - rem) : 0;
+    return (A > B) ? 0 : ((B - A)/K + 1);
+}
 ////////////////////////////////////////////////////////////////////////////////
-TEST_CASE("count_divisibles", "[codility]")
+TEST_CASE("Count Divisibles", "[codility]")
 {
     REQUIRE(count_divisibles(6, 11, 2) == 3);
+    REQUIRE(count_divisibles(3, 30, 7) == 4);
+    REQUIRE(count_divisibles2(27, 30, 7) == 4);
 }
