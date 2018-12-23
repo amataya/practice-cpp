@@ -16,7 +16,7 @@ add_executable(codl054 l05_count_divisibles.cpp)
 
 add_executable(codl061 l06_distinct_values.cpp)
 add_executable(codl062 l06_max_triplet_product.cpp)
-#add_executable(codl063 l06_can_form_triangle.cpp)
+add_executable(codl063 l06_can_form_triangle.cpp)
 #add_executable(codl064 l06_disc_intersections.cpp)
 
 add_executable(cod_ocr ocr_similar.cpp)
