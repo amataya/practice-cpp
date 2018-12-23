@@ -12,7 +12,7 @@ add_executable(codl044 l04_missing_integer.cpp)
 add_executable(codl051 l05_passing_cars.cpp)
 add_executable(codl052 l05_genomic_range_query.cpp)
 add_executable(codl053 l05_min_avg_two_slice.cpp)
-#add_executable(codl054 l05_count_divisibles.cpp)
+add_executable(codl054 l05_count_divisibles.cpp)
 
 
 add_executable(codl064 l06_disc_intersections.cpp)
