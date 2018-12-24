@@ -24,6 +24,9 @@ add_executable(codl074 l07_stonewall.cpp)
 add_executable(codl081 l08_equileader.cpp)
 add_executable(codl082 l08_dominator.cpp)
 
+add_executable(codl131 l13_fibonacci_frog.cpp)
+add_executable(codl132 l13_ladder.cpp)
+
 add_executable(cod_ocr ocr_similar.cpp)
 add_executable(cod_equibindx equilibrium_index.cpp)
 add_executable(cod_leadsort leader_sorted_array.cpp)
