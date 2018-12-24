@@ -25,13 +25,16 @@ vector<string> letterCombinations(string digits)
     // destructors called when your application is exiting. These destructors
     // are "exit time destructors". and are called in the reverse order
     // that they were constructed in. The warning is only to seek attention.
-    static const string mapping[] = {"", "", "abc", "def", "ghi", "jkl",
-                                    "mno", "pqrs", "tuv", "wxyz"};
+    // Edit: Removed 'static' keyword to clear warning
+    const string mapping[] = {"", "",
+                              "abc", "def", "ghi",
+                              "jkl", "mno", "pqrs",
+                              "tuv", "wxyz"};
 
     int i = 0, j = 0, k = 0, index = 0;
 
     vector<string> result;
-    result.push_back("");
+    result.emplace_back("");
     for (i = 0; i < digits.size(); ++i)
     {
         index = digits[i] - '0';
