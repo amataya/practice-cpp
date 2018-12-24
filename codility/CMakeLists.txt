@@ -21,7 +21,8 @@ add_executable(codl071 l07_braces_match.cpp)
 add_executable(codl072 l07_fish_alive.cpp)
 add_executable(codl073 braces_balanced.cpp)
 add_executable(codl074 l07_stonewall.cpp)
-
+add_executable(codl081 l08_equileader.cpp)
+add_executable(codl082 l08_dominator.cpp)
 
 add_executable(cod_ocr ocr_similar.cpp)
 add_executable(cod_equibindx equilibrium_index.cpp)
