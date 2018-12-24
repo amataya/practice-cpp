@@ -18,7 +18,7 @@ add_executable(codl062 l06_max_triplet_product.cpp)
 add_executable(codl063 l06_can_form_triangle.cpp)
 add_executable(codl064 l06_disc_intersections.cpp)
 add_executable(codl071 l07_braces_match.cpp)
-#add_executable(codl072 l07_fish_alive.cpp)
+add_executable(codl072 l07_fish_alive.cpp)
 #add_executable(codl073 l07_nested.cpp)
 #add_executable(codl074 l07_stonewall.cpp)
 
