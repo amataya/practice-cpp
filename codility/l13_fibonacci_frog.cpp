@@ -88,8 +88,8 @@ int min_jumps(const vector<int> &A)
     // The frog is standing on the start position. It can step on onto the end
     // position. Imagine both these positions as leaf. It simplifies the problem.
     // However we don't want to change the input
-    //A.insert(A.begin(), 1);
-    //A.push_back(1);
+    // A.insert(A.begin(), 1);
+    // A.push_back(1);
     vector<bool> positions(A.size() + 2);
     positions[0] = true;
     positions[positions.size() - 1] = true;
