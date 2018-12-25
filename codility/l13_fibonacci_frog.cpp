@@ -77,7 +77,7 @@
 
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
-//  The frog can jump in steps of Fibonacci sequence
+// The frog can jump in steps of Fibonacci sequence
 // Since each move is based on the previous move this problems lends itself
 // well to dynamic programming.
 int min_jumps(const vector<int> &A)
