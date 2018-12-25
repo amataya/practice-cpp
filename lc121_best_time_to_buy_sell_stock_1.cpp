@@ -25,18 +25,18 @@
 
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
-int maxProfit(vector<int> prices)
+int maxProfit(const vector<int>& prices)
 {
     int minPrice = INT_MAX, maxProfit = 0;
-    for (int i = 0; i < prices.size(); ++i)
+    for(const auto& price : prices)
     {
-        minPrice = min(minPrice, prices[i]);
-        maxProfit = max(maxProfit, prices[i] - minPrice);
+        minPrice = min(minPrice, price);
+        maxProfit = max(maxProfit, price - minPrice);
     }
     return maxProfit;
 }
 
-int maxProfit2(vector<int> prices)
+int maxProfit2(const vector<int>& prices)
 {
     int maxCurr = 0, maxSoFar = 0;
     for (int i = 1; i < prices.size(); ++i)
@@ -47,18 +47,18 @@ int maxProfit2(vector<int> prices)
     return maxSoFar;
 }
 
-int maxProfit3(vector<int> prices)
+int maxProfit3(const vector<int>& prices)
 {
-    if (prices.size() == 0)
+    if (prices.empty())
         return 0;
     int minP = prices[0];
     int profit = 0;
-    for (int i = 1; i < prices.size(); ++i)
+    for(const auto& price : prices)
     {
-        if (minP > prices[i])
-            minP = prices[i];
+        if (minP > price)
+            minP = price;
         else
-            profit = max(prices[i] - minP, profit);
+            profit = max(price - minP, profit);
     }
     return profit;
 }
