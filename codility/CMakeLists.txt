@@ -32,7 +32,7 @@ add_executable(codl131 l13_fibonacci_frog.cpp)
 add_executable(codl132 l13_ladder.cpp)
 
 add_executable(codl151 l151_number_solitaire.cpp)
-#add_executable(codl152 l152_min_abs_sum.cpp)
+add_executable(codl152 l152_min_abs_sum.cpp)
 
 add_executable(cod_ocr ocr_similar.cpp)
 add_executable(cod_equibindx equilibrium_index.cpp)
