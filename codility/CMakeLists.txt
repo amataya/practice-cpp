@@ -23,16 +23,17 @@ add_executable(codl073 braces_balanced.cpp)
 add_executable(codl074 l07_stonewall.cpp)
 add_executable(codl081 l08_equileader.cpp)
 add_executable(codl082 l08_dominator.cpp)
-
 add_executable(codl091 l091_max_slice_sum.cpp)
 add_executable(codl092 l092_max_profit.cpp)
 add_executable(codl093 l093_max_double_slice_sum.cpp)
 
-add_executable(codl131 l13_fibonacci_frog.cpp)
-add_executable(codl132 l13_ladder.cpp)
+add_executable(codl111 l111_semiprimes.cpp)
 
-add_executable(codl151 l151_number_solitaire.cpp)
-add_executable(codl152 l152_min_abs_sum.cpp)
+add_executable(codl131 l131_fibonacci_frog.cpp)
+add_executable(codl132 l132_ladder.cpp)
+
+add_executable(codl171 l171_number_solitaire.cpp)
+add_executable(codl172 l172_min_abs_sum.cpp)
 
 add_executable(cod_ocr ocr_similar.cpp)
 add_executable(cod_equibindx equilibrium_index.cpp)
