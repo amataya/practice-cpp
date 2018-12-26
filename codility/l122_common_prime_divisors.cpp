@@ -43,9 +43,9 @@
 
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
-long gcd(long a, long b)
+int gcd(int a, int b)
 {
-    long c;
+    int c;
     while (b != 0)
     {
         c = a % b;
@@ -55,41 +55,25 @@ long gcd(long a, long b)
     return a;
 }
 
-// Remove all prime divisors of x, which also exist in y and return the
-// remaining part of x.
-int remove_prime_divisors(int a, int b)
-{
-    long val;
-    while (a != 1)
-    {
-        val = gcd(a, b);
-        if (val == 1) // there are no more common divisors
-            break;
-        a /= val;
-    }
-    return a;
-}
-
-bool have_same_prime_divisors(int x, int y)
-{
-    const auto val = gcd(x, y);
-    x = remove_prime_divisors(x, val);
-    if (x != 1)
-        return false;
-    y = remove_prime_divisors(y, val);
-    return y == 1;
-}
-
 int same_prime_divisors(const vector<int> &A, const vector<int> &B)
 {
-    int counts = 0;
+    int counts = 0, a, b, c, d;
     for (auto i = 0; i < A.size(); ++i)
-        if (have_same_prime_divisors(A[i], B[i]))
+    {
+        a = A[i];
+        b = B[i];
+        d = gcd(a, b);
+        while ((c = gcd(a, d)) != 1)
+            a /= c;
+        while ((c = gcd(b, d)) != 1)
+            b /= c;
+        if (a == 1 && b == 1)
             ++counts;
+    }
     return counts;
 }
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE("Same Prime Divisors", "[codility]")
 {
-    REQUIRE(same_prime_divisors({5, 10, 3}, {75, 30, 5}) == 1);
+    REQUIRE(same_prime_divisors({15, 10, 3}, {75, 30, 5}) == 1);
 }
