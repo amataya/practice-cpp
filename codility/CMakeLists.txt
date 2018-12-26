@@ -29,6 +29,8 @@ add_executable(codl093 l093_max_double_slice_sum.cpp)
 
 add_executable(codl111 l111_semiprimes.cpp)
 add_executable(codl112 l112_count_nondivisors.cpp)
+add_executable(codl121 l121_chocolates.cpp)
+add_executable(codl122 l122_common_prime_divisors.cpp)
 
 add_executable(codl131 l131_fibonacci_frog.cpp)
 add_executable(codl132 l132_ladder.cpp)
