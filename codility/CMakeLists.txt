@@ -35,6 +35,8 @@ add_executable(codl122 l122_common_prime_divisors.cpp)
 add_executable(codl131 l131_fibonacci_frog.cpp)
 add_executable(codl132 l132_ladder.cpp)
 
+add_executable(codl161 l161_nonoverlapping_segments.cpp)
+add_executable(codl162 l162_tie_ropes.cpp)
 add_executable(codl171 l171_number_solitaire.cpp)
 add_executable(codl172 l172_min_abs_sum.cpp)
 
