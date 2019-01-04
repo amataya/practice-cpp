@@ -91,8 +91,8 @@ int numUniqueEmails_v2(const vector<string>& emails)
     return unique.size();
 }
 
-// Apparently this makes the code performant
-auto performant = []() {
+// Standard trick to make code run fast
+static const int _= []() {
     std::ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);

@@ -35,6 +35,7 @@ add_executable(lc692 lc692_top_k_frequent_words.cpp)
 add_executable(lc628 lc628_maximum_product_three_numbers.cpp)
 add_executable(lc042 lc042_trapping_rain_water.cpp)
 add_executable(lc929 lc929_unique_email.cpp)
+add_executable(lc146 lc146_lru_cache.cpp)
 
 add_executable(lc111 lc111_minimum_depth_binary_tree.cpp)
 target_link_libraries(lc111 libbt)

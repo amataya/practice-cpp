@@ -71,9 +71,8 @@ public:
         if (it == _index.end())
             return -1;
 
-        // Move accessed element to front. splice has added benefit that
-        // iterators in the _index will not be invalidated.
-        if (it->second != _cache.begin())
+        // splice does not invalidates existing iterators so _index is good
+        if (it->second != _cache.begin()) // Move accessed element to front
             _cache.splice(_cache.begin(), _cache, it->second);
 
         return it->second->second;

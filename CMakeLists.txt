@@ -15,6 +15,8 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|AppleClang|GNU")
     message("Compiler options set for Clang|AppleClang|GNU")
 endif()
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    # To be able to view std::map in debugger
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libstdc++")
     add_compile_options(-Wweak-vtables -Wexit-time-destructors -Wglobal-constructors -Wmissing-noreturn )
     message("Compiler options set for Clang")
 endif()
