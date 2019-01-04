@@ -7,8 +7,8 @@
 struct ListNode
 {
     int val;
-    ListNode *next = nullptr;
-    explicit ListNode(int x) : val(x) {}
+    ListNode *next;
+    explicit ListNode(int x, ListNode *n = nullptr) : val(x), next(n) {}
 };
 
 ListNode* create_list(const std::vector<int>& numbers)

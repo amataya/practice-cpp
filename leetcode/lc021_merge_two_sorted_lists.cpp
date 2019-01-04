@@ -43,7 +43,7 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
     return lst.next;
 }
 ////////////////////////////////////////////////////////////////////////////////
-TEST_CASE("Merge two sorted lists", "[leetcode]")
+TEST_CASE("Merge two sorted lists - 1", "[leetcode]")
 {
     ListNode *l1 = create_list({1, 2, 4});
     ListNode *l2 = create_list({1, 3, 4});
@@ -52,12 +52,15 @@ TEST_CASE("Merge two sorted lists", "[leetcode]")
     destroy_list(l1);
     destroy_list(l2);
     destroy_list(l3);
+}
 
-    ListNode *l4 = create_list({1, 2, 7, 8, 9, 10});
-    ListNode *l5 = create_list({1, 3, 4});
-    ListNode *l6 = mergeTwoLists(l4, l5);
-    REQUIRE(list_to_vector(l6) == vector<int>{1, 1, 2, 3, 4, 7, 8, 9, 10});
-    destroy_list(l4);
-    destroy_list(l5);
-    destroy_list(l6);
+TEST_CASE("Merge two sorted lists - 2", "[leetcode]")
+{
+    ListNode *l1 = create_list({1, 2, 7, 8, 9, 10});
+    ListNode *l2 = create_list({1, 3, 4});
+    ListNode *l3 = mergeTwoLists(l1, l2);
+    REQUIRE(list_to_vector(l3) == vector<int>{1, 1, 2, 3, 4, 7, 8, 9, 10});
+    destroy_list(l1);
+    destroy_list(l2);
+    destroy_list(l3);
 }
