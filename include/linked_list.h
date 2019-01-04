@@ -1,5 +1,5 @@
-#ifndef PRACTICE_UTILS_H
-#define PRACTICE_UTILS_H
+#ifndef PRACTICE_LINKED_LIST_H
+#define PRACTICE_LINKED_LIST_H
 
 #include <vector>
 
@@ -8,10 +8,10 @@ struct ListNode
 {
     int val;
     ListNode *next = nullptr;
-    ListNode(int x) : val(x) {}
+    explicit ListNode(int x) : val(x) {}
 };
 
-ListNode* create_list(std::vector<int> numbers)
+ListNode* create_list(const std::vector<int>& numbers)
 {
     ListNode l(0);
     ListNode* p = &l;

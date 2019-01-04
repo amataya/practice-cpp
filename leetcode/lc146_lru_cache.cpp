@@ -55,8 +55,9 @@ class LRUCache
     cache_t _cache;
     size_t _capacity;
 public:
-    LRUCache(const int& capacity) : _capacity(capacity)
+    explicit LRUCache(const size_t& capacity)
     {
+        _capacity = capacity;
         _index.reserve(_capacity);
     }
     ~LRUCache() = default;

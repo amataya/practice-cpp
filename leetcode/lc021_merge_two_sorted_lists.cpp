@@ -10,7 +10,7 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#include "utils.h"
+#include "linked_list.h"
 #include <vector>
 
 using namespace std;
