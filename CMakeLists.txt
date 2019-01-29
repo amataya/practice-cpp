@@ -29,6 +29,7 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Essential
 add_library(libbt STATIC binary_tree.cpp)
+add_library(libtrie STATIC trie.cpp)
 
 # Add Executables below
 add_subdirectory(codility)
@@ -37,8 +38,12 @@ add_subdirectory(leetcode)
 add_executable(algo_bfsgraph graph_bfs_traversal.cpp)
 add_executable(algo_dfsgraph graph_dfs_traversal.cpp)
 add_executable(algo_dijkstra graph_dijkstra_shortest_path.cpp)
+
 add_executable(algo_binary_tree binary_tree_app.cpp)
 target_link_libraries(algo_binary_tree libbt)
+
+add_executable(algo_trie dictionary_app.cpp)
+target_link_libraries(algo_trie libtrie)
 
 # Other
 add_executable(exer_wtjbsched weighted_job_scheduling.cpp)
