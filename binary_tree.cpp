@@ -103,11 +103,9 @@ void inorder(BTNode *root, vector<int>& traversal)
 
 vector<int> inorder_iterative(BTNode *node)
 {
-    if (!node)
-        return {};
     stack<BTNode*> stk;
     vector<int> traversal;
-    for(BTNode *prev = nullptr; node || !stk.empty();)
+    while(node || !stk.empty())
     {
         for(; node; node = node->left)
             stk.push(node);
@@ -167,7 +165,7 @@ int min_depth_iterative(BTNode *root)
 }
 ////////////////////////////////////////////////////////////////////////////////
 // Given a Binary Tree, find the deepest leaf node that is left child of its
-// parent. For example, consider the following tree.
+// parent.
 ////////////////////////////////////////////////////////////////////////////////
 void deepest_leaf_node_util(BTNode* node,
                             int level, int& maxLevel,
