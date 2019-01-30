@@ -36,13 +36,13 @@ add_library(libgraph STATIC graph.cpp)
 add_subdirectory(codility)
 add_subdirectory(leetcode)
 
-add_executable(algo_binary_tree binary_tree_app.cpp)
+add_executable(algo_binary_tree algo_binary_tree.cpp)
 target_link_libraries(algo_binary_tree libbt)
 
-add_executable(algo_trie dictionary_app.cpp)
+add_executable(algo_trie algo_trie.cpp)
 target_link_libraries(algo_trie libtrie)
 
-add_executable(algo_graph graph_app.cpp)
+add_executable(algo_graph algo_graph.cpp)
 target_link_libraries(algo_graph libgraph)
 
 # Other

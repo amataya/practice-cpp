@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <set>
+#include <queue>
 #include <utility>
 #include <climits>
 
@@ -11,19 +12,18 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
 vector<int> bfs_traversal(const Graph& g, int v)
 {
-    vector<int> visits;
-
+    vector<int> path;
     vector<bool> visited(g.size());
-    list<int> queue;
+    queue<int> q;
 
     visited[v] = true;
-    queue.push_back(v);
+    q.push(v);
 
-    while(!queue.empty())
+    while(!q.empty())
     {
         // Dequeue a v and visit it
-        v = queue.front(); queue.pop_front();
-        visits.push_back(v);
+        v = q.front(); q.pop();
+        path.push_back(v);
 
         // Loop through all adjacent vertices of v
         for(const auto& n : g[v])
@@ -31,11 +31,11 @@ vector<int> bfs_traversal(const Graph& g, int v)
             if (!visited[n.dest])
             {
                 visited[n.dest] = true;
-                queue.push_back(n.dest);
+                q.push(n.dest);
             }
         }
     }
-    return visits;
+    return path;
 }
 ////////////////////////////////////////////////////////////////////////////////
 // Depth-first traversal of a graph
