@@ -47,22 +47,6 @@ int maxProfit2(const vector<int>& prices)
     return maxSoFar;
 }
 
-int maxProfit3(const vector<int>& prices)
-{
-    if (prices.empty())
-        return 0;
-    int minP = prices[0];
-    int profit = 0;
-    for(const auto& price : prices)
-    {
-        if (minP > price)
-            minP = price;
-        else
-            profit = max(price - minP, profit);
-    }
-    return profit;
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 TEST_CASE("Best time to buy and sell stocks 1", "[leetcode]")
 {
@@ -75,10 +59,3 @@ TEST_CASE("Best time to buy and sell stocks 1 - Kadane", "[leetcode]")
     REQUIRE(maxProfit2({7,1,5,3,6,4}) == 5);
     REQUIRE(maxProfit2({7,6,4,3,1}) == 0);
 }
-
-TEST_CASE("Best time to buy and sell stocks 1 - Alternate", "[leetcode]")
-{
-    REQUIRE(maxProfit3({7,1,5,3,6,4}) == 5);
-    REQUIRE(maxProfit3({7,6,4,3,1}) == 0);
-}
-
