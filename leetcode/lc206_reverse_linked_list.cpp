@@ -7,16 +7,11 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
+#include "linked_list.h"
 #include <vector>
 
 using namespace std;
-////////////////////////////////////////////////////////////////////////////////
-struct ListNode
-{
-    int val;
-    ListNode *next = nullptr;
-    ListNode(int x) : val(x) {}
-};
+
 ////////////////////////////////////////////////////////////////////////////////
 ListNode* reverseList(ListNode* head)
 {
@@ -33,16 +28,7 @@ ListNode* reverseList(ListNode* head)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-vector<int> traverse(ListNode* head)
-{
-    vector<int> result;
-    while (head)
-    {
-        result.push_back(head->val);
-        head = head->next;
-    }
-    return result;
-}
+
 
 TEST_CASE("Reverse Linked List", "[leetcode]")
 {
@@ -53,5 +39,5 @@ TEST_CASE("Reverse Linked List", "[leetcode]")
     l->next->next->next->next = new ListNode(5);
 
     ListNode* r = reverseList(l);
-    REQUIRE(traverse(r) == vector<int>{5, 4, 3, 2, 1});
+    REQUIRE(list_to_vector(r) == vector<int>{5, 4, 3, 2, 1});
 }

@@ -30,9 +30,9 @@ using namespace std;
 //             max_so_far = max_ending_here
 // return max_so_far
 ////////////////////////////////////////////////////////////////////////////////
-int maxSubArray(vector<int> nums)
+int maxSubArray(const vector<int>& nums)
 {
-    if (nums.size() < 1)
+    if (nums.empty())
         return 0;
 
     int curMax = nums[0], allTimeMax = nums[0];

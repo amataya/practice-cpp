@@ -45,6 +45,7 @@ std::vector<int> list_to_vector(ListNode *l)
     }
     return result;
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 
 #endif //PRACTICE_UTILS_H

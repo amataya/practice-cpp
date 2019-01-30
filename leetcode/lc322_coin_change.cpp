@@ -44,9 +44,13 @@ int coin_change(vector<int> coins, int amount)
     vector<int> table(amount + 1, INT_MAX);
     table[0] = 0; // Base case. For 0 amount we require 0 coins.
     for (int curAmt = 1; curAmt <= amount; ++curAmt)
-        for(const auto& coin : coins)
+    {
+        for (const auto &coin : coins)
+        {
             if (curAmt - coin >= 0 && table[curAmt - coin] != INT_MAX)
                 table[curAmt] = min(table[curAmt], table[curAmt - coin] + 1);
+        }
+    }
     return table[amount] == INT_MAX ? - 1 : table[amount];
 }
 ////////////////////////////////////////////////////////////////////////////////
