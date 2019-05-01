@@ -99,7 +99,7 @@ vector<int> genomic_range_query(string S, vector<int> P, vector<int> Q)
 TEST_CASE("Genomic Range Query", "[codility]")
 {
     // For the example plot the arrays and then this will start making sense
-    // The approach here is described in "PrefixSum.pdf" in docs folder.
+    // The approach here is described in "PrefixSum.pdf" in reference folder.
     REQUIRE(genomic_range_query("CAGCCTA", {2, 5, 0}, {4, 5, 6}) ==
     vector<int>{2, 4, 1});
 }

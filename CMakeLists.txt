@@ -25,35 +25,10 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     message("Compiler options set for MSVC")
 endif()
 
-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-# Essential
-add_library(libbt STATIC binary_tree.cpp)
-add_library(libtrie STATIC trie.cpp)
-add_library(libgraph STATIC graph.cpp)
-
-# Add Executables below
-add_subdirectory(codility)
+include_directories(include)
+add_subdirectory(essential)
 add_subdirectory(leetcode)
+add_subdirectory(codility)
+add_subdirectory(problems)
 
-add_executable(algo_binary_tree algo_binary_tree.cpp)
-target_link_libraries(algo_binary_tree libbt)
-
-add_executable(algo_trie algo_trie.cpp)
-target_link_libraries(algo_trie libtrie)
-
-add_executable(algo_graph algo_graph.cpp)
-target_link_libraries(algo_graph libgraph)
-
-# Other
-add_executable(exer_wtjbsched weighted_job_scheduling.cpp)
-add_executable(exer_formatnum format_number_into_currency.cpp)
-add_executable(exer_revsent reverse_sentence.cpp)
-add_executable(exer_wayssum count_ways_of_sum.cpp)
-add_executable(exer_avggroup average_of_groups.cpp)
-add_executable(exer_firstoccr first_occurrence_of_number.cpp)
-add_executable(exer_missingwrd find_missing_words.cpp)
-add_executable(exer_firstunique first_unique_number.cpp)
-add_executable(exer_lexiorder lexicographic_ordering_numbers.cpp)
-add_executable(exer_lenlongsubseq length_of_longest_subsequence_with_given_sum.cpp)
 
