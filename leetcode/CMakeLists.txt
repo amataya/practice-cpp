@@ -39,6 +39,7 @@ add_executable(lc146 lc146_lru_cache.cpp)
 add_executable(lc002 lc002_add_two_numbers_given_as_linked_list.cpp)
 add_executable(lc003 lc003_longest_substring_without_repeating_characters.cpp)
 add_executable(lc056 lc056_merge_intervals.cpp)
+add_executable(lc023 lc023_merge_k_sorted_lists.cpp)
 
 add_executable(lc111 lc111_minimum_depth_binary_tree.cpp)
 target_link_libraries(lc111 libbt)
