@@ -40,29 +40,21 @@ vector<vector<int>> merge_intervals(vector<vector<int>> intervals)
     if (intervals.size() < 2)
         return intervals;
 
-    stack<vector<int>> ordered;
-    int i = 0;
+    static auto cmp =  [](const vector<int>& v1, const vector<int>& v2) {
+        return (v1[0] < v2[0]);
+    };
 
-    sort(intervals.begin(), intervals.end(),
-        [](const vector<int>& a, const vector<int>& b) {
-        return (a[0] < b[0]);
-    });
+    sort(intervals.begin(), intervals.end(), cmp);
 
-    ordered.push(intervals[0]);
-    for (i = 1; i < intervals.size(); ++i)
+    vector<vector<int>> result;
+    result.push_back(intervals[0]);
+    for (int i = 1; i < intervals.size(); ++i)
     {
-        if (ordered.top()[1] < intervals[i][0])
-            ordered.push(intervals[i]);
-        else if (ordered.top()[1] < intervals[i][1])
-            ordered.top()[1] = intervals[i][1];
-    }
+        if (result.back()[1] < intervals[i][0])
+            result.push_back(move(intervals[i]));
+        else
+            result.back()[1] = max(result.back()[1], intervals[i][1]);
 
-    vector<vector<int>> result(ordered.size());
-    i = ordered.size() - 1;
-    while (!ordered.empty())
-    {
-        result[i--] = move(ordered.top());
-        ordered.pop();
     }
     return result;
 }
@@ -82,5 +74,5 @@ TEST_CASE("LC0056-Merge-Intervals-2", "[leetcode]")
 TEST_CASE("LC0056-Merge-Intervals-3", "[leetcode]")
 {
     auto result = merge_intervals({});
-    REQUIRE(result == vector<vector<int>>{});
+    REQUIRE(result.empty());
 }
