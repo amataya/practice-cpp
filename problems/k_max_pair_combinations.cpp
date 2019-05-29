@@ -24,12 +24,12 @@ using namespace std;
 //    along with the indices of elements from both arrays A and B which make up
 //    the sum. Heap is ordered by the sum.
 // 3. Initialize the heap with the maximum possible sum combination i.e
-//  (A[N – 1] + B[N – 1] where N is the size of array) and with the indices of
-//  elements from both arrays (N – 1, N – 1). The tuple inside max heap will
-//  be (A[N-1] + B[N – 1], N – 1, N – 1). Heap is ordered by first value
-//  i.e sum of both elements.
+//    (A[N – 1] + B[N – 1] where N is the size of array) and with the indices of
+//    elements from both arrays (N – 1, N – 1). The tuple inside max heap will
+//    be (A[N-1] + B[N – 1], N – 1, N – 1). Heap is ordered by first value
+//    i.e sum of both elements.
 // 4. Pop the heap to get the current largest sum and along with the indices of
-//   the element that make up the sum. Let the tuple be (sum, i, j).
+//    the element that make up the sum. Let the tuple be (sum, i, j).
 //   (i) Next insert (A[i – 1] + B[j], i – 1, j) and (A[i] + B[j – 1], i, j – 1)
 //    into the max heap but make sure that the pair of indices
 //    i.e (i – 1, j) and (i, j – 1) are not already present in the max heap.
